@@ -1,0 +1,80 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - job_positions
+  - apply_now
+  - info_about_company
+  - applyforjob
+
+responses:
+  utter_greet:
+  - text: Hi , Welcome to Kasetti Technologies!☺️
+
+  utter_website_url:
+  - text: Here is the link to our [website](https://techkasetti.com/index.html)  
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_user_details_form_name:
+  - text: What is your name?
+
+  utter_ask_user_details_form_number:
+  - text: What is your mobile number?
+
+  utter_ask_user_details_form_mailid:
+  - text: Please Mention Your EmailId?
+
+  utter_thanks:
+    - text: Thanks for providing the values.
+
+  utter_details_thanks:
+    - text: "Thanks for providing the given details \nName: {Name},\nMobile Number: {Mobile_number},\nEmail: {Email}"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+  - action_resources_list
+  - action_submit
+  - validate_user_details_form
+
+forms:
+  user_details_form:
+    name:
+      - type: from_text
+    number:
+      - type: from_text
+    mailid:
+      - type: from_text      
+
+
+slots:
+  name:
+    type: text
+  number:
+    type: text
+  mailid:
+    type: text      
+          
